@@ -1,39 +1,32 @@
-.a2hs-container {
+.buttonText {
+    margin-left: 10px !important;
+}
+
+.a2hsContainer {
     width: 100%;
-    background-color: black;
     display: flex;
     align-items: center;
     z-index: 999999999;
-    position: absolute;
-    margin-top: 100px;
-
+    position: fixed;
+    margin: 3px;
 }
 
-.ui.icon.main-button {
-    margin-right: 0px !important;
-
-}
-
-.test {
-    margin-right: 10px !important;
-}
-
-.top-left {
+.topLeft {
     top: 0;
     justify-content: flex-start;
-}
-
-.top-right {
+  }
+  
+.topRight {
     top: 0;
     justify-content: flex-end;
-}
-
-.bottom-left {
+  }
+  
+  .bottomLeft {
     bottom: 0;
     justify-content: flex-start;
-}
-
-.bottom-right {
+  }
+  
+  .bottomRight {
     bottom: 0;
     justify-content: flex-end;
-}
+  }
