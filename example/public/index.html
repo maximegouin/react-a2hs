@@ -8,7 +8,23 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="theme-color" content="#000000" />
-
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+        var initConfig = {
+            appId: "c29401ad-b354-4538-a1af-b2d1026bbea0",
+            notifyButton: {
+                enable: true
+            },
+            allowLocalhostAsSecureOrigin: true,
+        };
+        OneSignal.push(function () {
+            OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+            OneSignal.SERVICE_WORKER_PATH = '/OneSignalSDKWorker.js'
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = '/OneSignalSDKUpdaterWorker.js'
+            OneSignal.init(initConfig);
+        });
+    </script>
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
