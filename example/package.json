@@ -1,7 +1,7 @@
 {
   "name": "react-a2hs-example",
-  "homepage": ".",
-  "version": "0.0.0",
+  "homepage": "./build",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-app-rewired start",
