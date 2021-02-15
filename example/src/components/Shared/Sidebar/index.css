@@ -1,0 +1,9 @@
+.custom-sidebar {
+    margin-top: 0 !important;
+    background-color: transparent !important;
+    min-height: 100vh !important;
+}
+
+.custom-sidebar > .menu > a > .icon {
+    color: #5a0fc8 !important;
+}

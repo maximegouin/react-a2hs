@@ -13,6 +13,49 @@ code {
     monospace;
 }
 
+html, #root {
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
 #root {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.custom-page-header {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #5a0fc8 !important;
+  color: white !important;
+}
+
+.custom-page-segment {
+  background-color: transparent !important;
+  border: none !important;
+  color: white;
+}
+
+.custom-page-segment > .accordion > .title {
+  color: white !important;
+}
+
+.custom-page-segment > .accordion > .title > .icon {
+  color: #5a0fc8 !important;
+}
+
+.white {
+  color: white !important;
+}
+
+.empty-cell {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-link {
+  color: white;
+}
+
+.custom-link > a {
+  color: black;
 }

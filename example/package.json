@@ -4,26 +4,33 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
-    "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
+    "customize-cra": "^1.0.0",
     "react": "link:../node_modules/react",
     "react-a2hs": "link:..",
     "react-color": "^2.19.3",
     "react-dom": "link:../node_modules/react-dom",
     "react-if": "^4.0.1",
     "react-onesignal": "^1.7.0",
+    "react-redux": "^7.2.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "link:../node_modules/react-scripts",
+    "redux": "^4.0.5",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "workbox-routing": "^6.1.0",
     "workbox-strategies": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "react-app-rewired": "^2.1.8"
   },
   "eslintConfig": {
     "extends": "react-app"

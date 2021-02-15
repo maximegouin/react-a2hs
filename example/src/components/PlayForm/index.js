@@ -1,36 +1,40 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useSelector, useDispatch } from 'react-redux'
 import { If } from 'react-if'
 import { Form, Label } from 'semantic-ui-react'
-import { SketchPicker } from 'react-color';
-import { renderPositionOptions, renderSizeOptions } from './utils';
+import { SketchPicker } from 'react-color'
+import { 
+    SET_TITLE,
+    SET_POSITION,
+    SET_TITLE_COLOR,
+    SET_BUTTON_ICON,
+    SET_BUTTON_COLOR,
+    SET_BUTTON_SIZE,
+    SET_BUTTON_ICON_COLOR,
+    SET_CLOSE_BUTTON_SIZE,
+    SET_CLOSE_BUTTON_COLOR,
+    SET_CLOSE_BUTTON_ICON,
+    SET_CLOSE_BUTTON_ICON_COLOR,
+} from 'containers/A2HS/constants'
+import { renderPositionOptions, renderSizeOptions } from './utils'
 import './styles.css'
 
-const PlayForm = ({
-    title,
-    setTitle,
-    position,
-    setPosition,
-    titleColor,
-    setTitleColor,
-    buttonIcon,
-    setButtonIcon,
-    buttonColor,
-    setButtonColor,
-    buttonSize,
-    setButtonSize,
-    buttonIconColor,
-    setButtonIconColor,
-    closeButtonSize,
-    setCloseButtonSize,
-    closeButtonIcon,
-    setCloseButtonIcon,
-    closeButtonIconColor,
-    setCloseButtonIconColor,
-    closeButtonColor,
-    setCloseButtonColor,
-}) => {
+const PlayForm = () => {
+    const dispatch = useDispatch()
     const [showSketchColor, setShowSketchColor] = useState(false);
+    const {
+        title,
+        position,
+        titleColor,
+        buttonIcon,
+        buttonColor,
+        buttonSize,
+        buttonIconColor,
+        closeButtonSize,
+        closeButtonIcon,
+        closeButtonIconColor,
+        closeButtonColor,
+      } = useSelector(state => state.A2HS)
 
     const handleShowSketchColor = (id) => {
         if(!showSketchColor || showSketchColor !== id) {
@@ -41,51 +45,51 @@ const PlayForm = ({
     }
 
     const handleButtonColor = ({ hex }) => {
-        setButtonColor(hex)
+        dispatch({ type: SET_BUTTON_COLOR, payload: hex })
     }
 
     const handleCloseButtonColor = ({ hex }) => {
-        setCloseButtonColor(hex)
+        dispatch({ type: SET_CLOSE_BUTTON_COLOR, payload: hex })
     }
 
     const handleButtonIconColor = ({ hex }) => {
-        setButtonIconColor(hex)
+        dispatch({ type: SET_BUTTON_ICON_COLOR, payload: hex })
     }
 
     const handleCloseButtonIconColor = ({ hex }) => {
-        setCloseButtonIconColor(hex)
+        dispatch({ type: SET_CLOSE_BUTTON_ICON_COLOR, payload: hex })
     }
 
     const handleTitle = ({ target: { value } }) => {
-        setTitle(value)
+        dispatch({ type: SET_TITLE, payload: value })
     }
 
     const handleTitleColor = ({ hex }) => {
-        setTitleColor(hex)
+        dispatch({ type: SET_TITLE_COLOR, payload: hex })
     }
 
     const handlePosition = ({ target: { value } }) => {
-        setPosition(value)
+        dispatch({ type: SET_POSITION, payload: value })
     }
 
     const handleButtonIcon = ({ target: { value } }) => {
-        setButtonIcon(value)
+        dispatch({ type: SET_BUTTON_ICON, payload: value })
     }
 
     const handleCloseButtonIcon = ({ target: { value } }) => {
-        setCloseButtonIcon(value)
+        dispatch({ type: SET_CLOSE_BUTTON_ICON, payload: value })
     }
 
     const handleButtonSize = ({ target: { value } }) => {
-        setButtonSize(value)
+        dispatch({ type: SET_BUTTON_SIZE, payload: value })
     }
 
     const handleCloseButtonSize = ({ target: { value } }) => {
-        setCloseButtonSize(value)
+        dispatch({ type: SET_CLOSE_BUTTON_SIZE, payload: value })
     }
 
     return (
-        <Form>
+        <Form className="form-play-props">
             <Form.Group widths='equal'>
                 <Form.Field>
                     <label>Set title</label>
@@ -159,34 +163,9 @@ const PlayForm = ({
                     </select>
                 </Form.Field>
             </Form.Group>
-            <span>Supported icons name: <a href="https://react.semantic-ui.com/elements/icon/" target="_blank" rel="noreferrer">React Semantic UI</a></span>
+            <span>Supported icons name: <a href="https://react.semantic-ui.com/elements/icon/" target="_blank" rel="noopener noreferrer">React Semantic UI</a></span>
         </Form>
     )
-}
-
-PlayForm.propTypes = {
-    title: PropTypes.string.isRequired,
-    setTitle: PropTypes.func.isRequired,
-    position: PropTypes.string.isRequired,
-    setPosition: PropTypes.func.isRequired,
-    titleColor: PropTypes.string.isRequired,
-    setTitleColor: PropTypes.func.isRequired,
-    buttonIcon: PropTypes.string.isRequired,
-    setButtonIcon: PropTypes.func.isRequired,
-    buttonColor: PropTypes.string.isRequired,
-    setButtonColor: PropTypes.func.isRequired,
-    buttonSize: PropTypes.string.isRequired,
-    setButtonSize: PropTypes.func.isRequired,
-    buttonIconColor: PropTypes.string.isRequired,
-    setButtonIconColor: PropTypes.func.isRequired,
-    closeButtonSize: PropTypes.string.isRequired,
-    setCloseButtonSize: PropTypes.func.isRequired,
-    closeButtonIcon: PropTypes.string.isRequired,
-    setCloseButtonIcon: PropTypes.func.isRequired,
-    closeButtonIconColor: PropTypes.string.isRequired,
-    setCloseButtonIconColor: PropTypes.func.isRequired,
-    closeButtonColor: PropTypes.string.isRequired,
-    setCloseButtonColor: PropTypes.func.isRequired,
 }
 
 export default PlayForm
