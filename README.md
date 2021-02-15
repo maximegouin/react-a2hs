@@ -1,6 +1,6 @@
 # react-a2hs
 
-> Customized Add to home screen button for your PWA
+> Quickly show an installable button for your React PWA
 
 [![NPM](https://img.shields.io/npm/v/react-a2hs.svg)](https://www.npmjs.com/package/react-a2hs) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -9,21 +9,41 @@
 ```bash
 npm install --save react-a2hs
 ```
+```bash
+yarn add react-a2hs
+```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import { A2HSProvider } from  'react-a2hs'
 
-import MyComponent from 'react-a2hs'
-import 'react-a2hs/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+const App = () => (
+	<A2HSProvider
+		title={title}
+		position={position}
+		titleColor={titleColor}
+		buttonIcon={buttonIcon}
+	>
+		{children}
+	</A2HSProvider>
+)
 ```
+## Props
+| name                 | default            |
+|----------------------|--------------------|
+| title                | Add to home screen |
+| position             | bottom-left        |
+| titleColor           | white              |
+| buttonIcon           | download           |
+| buttonColor          | black              |
+| buttonSize           | medium             |
+| buttonIconColor      | white              |
+| closeButtonSize      | small              |
+| closeButtonIcon      | close              |
+| closeButtonIconColor | gray               |
+| closeButtonColor     | gray               |
+
 
 ## License
 

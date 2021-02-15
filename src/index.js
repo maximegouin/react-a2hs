@@ -5,7 +5,7 @@ import A2HSButton from './components/A2HSButton'
 import 'semantic-ui-css/semantic.min.css'
 import './styles.module.css'
 
-export const A2HSProvider = ({ onAccepted, onRefused, children, ...props }) => {
+export const A2HSProvider = ({ children, ...props }) => {
   const [showA2HS, setShowA2HS] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState()
 
@@ -49,7 +49,5 @@ export const A2HSProvider = ({ onAccepted, onRefused, children, ...props }) => {
 }
 
 A2HSProvider.propTypes = {
-  onAccepted: PropTypes.func,
-  onRefused: PropTypes.func,
   children: PropTypes.node.isRequired
 }
