@@ -8,12 +8,15 @@ const CustomHeader = ({
   setShowSidebar,
   handleNavigation,
 }) => (
-  <Menu stackable inverted className="custom-header">
+  <Menu inverted className="custom-header">
     <Menu.Item onClick={setShowSidebar}>
       <Icon name="bars" />
     </Menu.Item>
     <Menu.Item onClick={handleNavigation} value="/">
       <img src={LogoPwa} alt="logo" value="/" />
+    </Menu.Item>
+    <Menu.Item onClick={handleNavigation} value="/installable">
+      React-A2HS Demo
     </Menu.Item>
   </Menu>
 )

@@ -24,15 +24,9 @@ export const A2HSProvider = ({ onAccepted, onRefused, children, ...props }) => {
     deferredPrompt.prompt()
     // Wait for the user to respond to the prompt
     deferredPrompt.userChoice.then((choiceResult) => {
-      if (
-        choiceResult.outcome === 'accepted' &&
-        typeof onAccepted === 'function'
-      ) {
-        onAccepted()
-      } else if (typeof onRefused === 'function') {
-        onRefused()
+      if (choiceResult.outcome === 'accepted') {
+        setShowA2HS(false)
       }
-      setDeferredPrompt(null)
     })
   }
 
