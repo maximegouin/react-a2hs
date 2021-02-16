@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 import App from './App';
 import store from './store'
+import initServiceWorkers from './initServiceWorkers';
 import './index.css'
 import 'semantic-ui-css/semantic.min.css'
-import initServiceWorkers from './initServiceWorkers';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -14,4 +14,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-initServiceWorkers();
+initServiceWorkers()

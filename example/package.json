@@ -1,6 +1,6 @@
 {
   "name": "react-a2hs-example",
-  "homepage": "./build",
+  "homepage": ".",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -24,12 +24,13 @@
     "redux": "^4.0.5",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
+    "workbox-broadcast-update": "^6.1.0",
     "workbox-routing": "^6.1.0",
-    "workbox-strategies": "^6.1.0",
-    "workbox-broadcast-update": "^6.1.0"
+    "workbox-strategies": "^6.1.0"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "react-app-rewired": "^2.1.8"
   },
