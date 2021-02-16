@@ -9,7 +9,16 @@ export const A2HSProvider = ({ children, ...props }) => {
   const [showA2HS, setShowA2HS] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState()
 
+  const isAppInstalled = async () => {
+    const relatedApps = await navigator.getInstalledRelatedApps()
+    console.log(relatedApps)
+    relatedApps.forEach((app) => {
+      console.log(app.id, app.platform, app.url)
+    })
+  }
+
   useEffect(() => {
+    isAppInstalled()
     window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault()
