@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/react-a2hs/static/css/main.8f154906.chunk.css",
-    "main.js": "/react-a2hs/static/js/main.94232a44.chunk.js",
-    "main.js.map": "/react-a2hs/static/js/main.94232a44.chunk.js.map",
+    "main.js": "/react-a2hs/static/js/main.7d4aa1a1.chunk.js",
+    "main.js.map": "/react-a2hs/static/js/main.7d4aa1a1.chunk.js.map",
     "runtime-main.js": "/react-a2hs/static/js/runtime-main.c75125fb.js",
     "runtime-main.js.map": "/react-a2hs/static/js/runtime-main.c75125fb.js.map",
     "static/css/2.18ad277d.chunk.css": "/react-a2hs/static/css/2.18ad277d.chunk.css",
     "static/js/2.b77e51d4.chunk.js": "/react-a2hs/static/js/2.b77e51d4.chunk.js",
     "static/js/2.b77e51d4.chunk.js.map": "/react-a2hs/static/js/2.b77e51d4.chunk.js.map",
     "index.html": "/react-a2hs/index.html",
-    "precache-manifest.3224c5438020af078c027ab7731ca78a.js": "/react-a2hs/precache-manifest.3224c5438020af078c027ab7731ca78a.js",
-    "precache-manifest.6bfdd969a36b1641483145745d13ff91.js": "/react-a2hs/precache-manifest.6bfdd969a36b1641483145745d13ff91.js",
+    "precache-manifest.3aa04768cf3e2e39dccc787cd4c8d540.js": "/react-a2hs/precache-manifest.3aa04768cf3e2e39dccc787cd4c8d540.js",
+    "precache-manifest.a6d70e03694004dffff4b7b884efe491.js": "/react-a2hs/precache-manifest.a6d70e03694004dffff4b7b884efe491.js",
     "service-worker.js": "/react-a2hs/service-worker.js",
     "static/css/2.18ad277d.chunk.css.map": "/react-a2hs/static/css/2.18ad277d.chunk.css.map",
     "static/css/main.8f154906.chunk.css.map": "/react-a2hs/static/css/main.8f154906.chunk.css.map",
     "static/js/2.b77e51d4.chunk.js.LICENSE.txt": "/react-a2hs/static/js/2.b77e51d4.chunk.js.LICENSE.txt",
-    "static/js/main.94232a44.chunk.js.LICENSE.txt": "/react-a2hs/static/js/main.94232a44.chunk.js.LICENSE.txt",
+    "static/js/main.7d4aa1a1.chunk.js.LICENSE.txt": "/react-a2hs/static/js/main.7d4aa1a1.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/react-a2hs/static/media/outline-icons.ef60a4f6.woff",
     "static/media/logo.png": "/react-a2hs/static/media/logo.03a8eedf.png"
   },
@@ -24,6 +24,6 @@
     "static/css/2.18ad277d.chunk.css",
     "static/js/2.b77e51d4.chunk.js",
     "static/css/main.8f154906.chunk.css",
-    "static/js/main.94232a44.chunk.js"
+    "static/js/main.7d4aa1a1.chunk.js"
   ]
 }

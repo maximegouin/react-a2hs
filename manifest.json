@@ -1,6 +1,6 @@
 {
-  "short_name": "react-a2hs",
-  "name": "react-a2hs",
+  "short_name": "React A2HS Demo",
+  "name": "React A2HS",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,17 +8,31 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon-384x384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "https://maximegouin.github.io/react-a2hs"
+  }],
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
