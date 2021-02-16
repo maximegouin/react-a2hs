@@ -31,7 +31,7 @@
   "start_url": ".",
   "related_applications": [{
     "platform": "webapp",
-    "url": "https://maximegouin.github.io/react-a2hs"
+    "url": "https://maximegouin.github.io/react-a2hs/manifest.json"
   }],
   "display": "standalone",
   "theme_color": "#000000",
