@@ -10,18 +10,22 @@ const App = () => {
   const dispatch = useDispatch()
   const {
     title,
-    position,
+    titleSize,
     titleColor,
-    buttonIcon,
-    buttonColor,
-    buttonSize,
-    buttonIconColor,
-    closeButtonSize,
-    closeButtonIcon,
-    closeButtonIconColor,
-    closeButtonColor,
+    text,
+    textSize,
+    textColor,
+    position,
+    icon,
+    iconSize,
+    iconColor,
+    buttonText,
+    buttonTextColor,
+    buttonBackgroundColor,
+    forceShow
   } = useSelector(state => state.A2HS)
 
+  // TODO Handle update app cache with modal
   navigator.serviceWorker.addEventListener('message', (event) => {
     console.log(event)
     if (event.data.meta === 'workbox-broadcast-update') {
@@ -29,20 +33,23 @@ const App = () => {
       dispatch({ type: SET_SHOW_SERVICE_WORKER_MODAL, payload: event.data.payload })
     }
   });
-
+  
   return (
     <A2HSProvider
       title={title}
-      position={position}
+      titleSize={titleSize}
       titleColor={titleColor}
-      buttonIcon={buttonIcon}
-      buttonColor={buttonColor}
-      buttonSize={buttonSize}
-      buttonIconColor={buttonIconColor}
-      closeButtonSize={closeButtonSize}
-      closeButtonIcon={closeButtonIcon}
-      closeButtonIconColor={closeButtonIconColor}
-      closeButtonColor={closeButtonColor}
+      text={text}
+      textSize={textSize}
+      textColor={textColor}
+      position={position}
+      icon={icon}
+      iconSize={iconSize}
+      iconColor={iconColor}
+      buttonText={buttonText}
+      buttonTextColor={buttonTextColor}
+      buttonBackgroundColor={buttonBackgroundColor}
+      forceShow={forceShow}
     >
       <ServiceWorkerModal />
       <Routes />

@@ -1,39 +1,45 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { If } from 'react-if'
-import { Form, Label } from 'semantic-ui-react'
+import { Form, Label, Header, Radio } from 'semantic-ui-react'
 import { SketchPicker } from 'react-color'
-import { 
-    SET_TITLE,
-    SET_POSITION,
-    SET_TITLE_COLOR,
-    SET_BUTTON_ICON,
-    SET_BUTTON_COLOR,
-    SET_BUTTON_SIZE,
-    SET_BUTTON_ICON_COLOR,
-    SET_CLOSE_BUTTON_SIZE,
-    SET_CLOSE_BUTTON_COLOR,
-    SET_CLOSE_BUTTON_ICON,
-    SET_CLOSE_BUTTON_ICON_COLOR,
-} from 'containers/A2HS/constants'
-import { renderPositionOptions, renderSizeOptions } from './utils'
+import { renderPositionOptions, renderSizeOptions, renderTitleSizeOptions } from './utils'
 import './styles.css'
+import { 
+    SET_TITLE, 
+    SET_TITLE_SIZE, 
+    SET_TITLE_COLOR, 
+    SET_TEXT, 
+    SET_TEXT_SIZE, 
+    SET_TEXT_COLOR,
+    SET_POSITION ,
+    SET_ICON,
+    SET_ICON_SIZE,
+    SET_ICON_COLOR,
+    SET_BUTTON_BACKGROUND_COLOR,
+    SET_BUTTON_TEXT_COLOR,
+    SET_BUTTON_TEXT,
+    SET_FORCE_SHOW
+} from 'containers/A2HS/constants'
 
 const PlayForm = () => {
     const dispatch = useDispatch()
     const [showSketchColor, setShowSketchColor] = useState(false);
     const {
         title,
-        position,
+        titleSize,
         titleColor,
-        buttonIcon,
-        buttonColor,
-        buttonSize,
-        buttonIconColor,
-        closeButtonSize,
-        closeButtonIcon,
-        closeButtonIconColor,
-        closeButtonColor,
+        text,
+        textSize,
+        textColor,
+        position,
+        icon,
+        iconSize,
+        iconColor,
+        buttonText,
+        buttonTextColor,
+        buttonBackgroundColor,
+        forceShow,
       } = useSelector(state => state.A2HS)
 
     const handleShowSketchColor = (id) => {
@@ -44,123 +50,155 @@ const PlayForm = () => {
         }
     }
 
-    const handleButtonColor = ({ hex }) => {
-        dispatch({ type: SET_BUTTON_COLOR, payload: hex })
-    }
-
-    const handleCloseButtonColor = ({ hex }) => {
-        dispatch({ type: SET_CLOSE_BUTTON_COLOR, payload: hex })
-    }
-
-    const handleButtonIconColor = ({ hex }) => {
-        dispatch({ type: SET_BUTTON_ICON_COLOR, payload: hex })
-    }
-
-    const handleCloseButtonIconColor = ({ hex }) => {
-        dispatch({ type: SET_CLOSE_BUTTON_ICON_COLOR, payload: hex })
-    }
-
+    // Title
     const handleTitle = ({ target: { value } }) => {
         dispatch({ type: SET_TITLE, payload: value })
     }
-
+    const handleTitleSize = ({ target: { value } }) => {
+        dispatch({ type: SET_TITLE_SIZE, payload: value })
+    }
     const handleTitleColor = ({ hex }) => {
         dispatch({ type: SET_TITLE_COLOR, payload: hex })
     }
 
+    // Text
+    const handleText = ({ target: { value } }) => {
+        dispatch({ type: SET_TEXT, payload: value })
+    }
+    const handleTextSize = ({ target: { value } }) => {
+        dispatch({ type: SET_TEXT_SIZE, payload: value })
+    }
+    const handleTextColor = ({ hex }) => {
+        dispatch({ type: SET_TEXT_COLOR, payload: hex })
+    }
+
+    // Position
     const handlePosition = ({ target: { value } }) => {
         dispatch({ type: SET_POSITION, payload: value })
     }
 
-    const handleButtonIcon = ({ target: { value } }) => {
-        dispatch({ type: SET_BUTTON_ICON, payload: value })
+    // Icon
+    const handleIcon = ({ target: { value } }) => {
+        dispatch({ type: SET_ICON, payload: value })
+    }
+    const handleIconSize = ({ target: { value } }) => {
+        dispatch({ type: SET_ICON_SIZE, payload: value })
+    }
+    const handleIconColor = ({ hex }) => {
+        dispatch({ type: SET_ICON_COLOR, payload: hex })
     }
 
-    const handleCloseButtonIcon = ({ target: { value } }) => {
-        dispatch({ type: SET_CLOSE_BUTTON_ICON, payload: value })
+    // Button
+    const handleButtonText = ({ target: { value } }) => {
+        dispatch({ type: SET_BUTTON_TEXT, payload: value })
+    }
+    const handleButtonTextColor = ({ hex }) => {
+        dispatch({ type: SET_BUTTON_TEXT_COLOR, payload: hex })
+    }
+    const handleButtonBackgroundColor = ({ hex }) => {
+        dispatch({ type: SET_BUTTON_BACKGROUND_COLOR, payload: hex })
     }
 
-    const handleButtonSize = ({ target: { value } }) => {
-        dispatch({ type: SET_BUTTON_SIZE, payload: value })
-    }
-
-    const handleCloseButtonSize = ({ target: { value } }) => {
-        dispatch({ type: SET_CLOSE_BUTTON_SIZE, payload: value })
+    // Force show
+    const handleForceShow = (_, { checked }) => {
+        dispatch({ type: SET_FORCE_SHOW, payload: checked })
     }
 
     return (
         <Form className="form-play-props">
+            <Header as='h3'>Force show</Header>
+            <Form.Group widths='equal'>
+                <Form.Field style={{ display: 'flex', flexDirection: 'row' }}>
+                    <label style={{ marginRight: '20px' }}>Force to show:</label>
+                    <Radio toggle checked={forceShow} onChange={handleForceShow} />
+                </Form.Field>
+            </Form.Group>
+            <Header as='h3'>Header</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Set title</label>
+                    <label>Title</label>
                     <input onChange={handleTitle} value={title} placeholder='Set title'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Set position</label>
-                    <select onChange={handlePosition} value={position}>
-                        {renderPositionOptions()}
+                    <label>Title size</label>
+                    <select onChange={handleTitleSize} value={titleSize}>
+                        {renderTitleSizeOptions()}
                     </select>
                 </Form.Field>
-            </Form.Group>
-            <Form.Group widths='equal'>
-            <Form.Field>
-                    <label>Set title color</label>
+                <Form.Field>
+                    <label>Title color</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: titleColor }} onClick={() => handleShowSketchColor("title")}/>
                     <If condition={showSketchColor === "title"}>
                         <SketchPicker onChange={handleTitleColor} color={titleColor} />
                     </If>
                 </Form.Field>
+            </Form.Group>
+            <Header as='h3'>Text</Header>
+            <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Set button color</label>
-                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonColor }} onClick={() => handleShowSketchColor("button")}/>
-                    <If condition={showSketchColor === "button"}>
-                        <SketchPicker onChange={handleButtonColor} color={buttonColor} />
-                    </If>
+                    <label>Text</label>
+                    <input onChange={handleText} value={text} placeholder='Set text'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Set close button color</label>
-                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: closeButtonColor }} onClick={() => handleShowSketchColor("close-button")}/>
-                    <If condition={showSketchColor === "close-button"}>
-                        <SketchPicker onChange={handleCloseButtonColor} color={closeButtonColor} />
-                    </If>
+                    <label>Text size (px)</label>
+                    <input type="number" onChange={handleTextSize} value={textSize} />
                 </Form.Field>
                 <Form.Field>
-                    <label>Set button icon color</label>
-                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonIconColor }} onClick={() => handleShowSketchColor("button-icon")}/>
-                    <If condition={showSketchColor === "button-icon"}>
-                        <SketchPicker onChange={handleButtonIconColor} color={buttonIconColor} />
-                    </If>
-                </Form.Field>
-                <Form.Field>
-                    <label>Set close button icon color</label>
-                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: closeButtonIconColor }} onClick={() => handleShowSketchColor("close-button-icon")}/>
-                    <If condition={showSketchColor === "close-button-icon"}>
-                        <SketchPicker onChange={handleCloseButtonIconColor} color={closeButtonIconColor} />
+                    <label>Text color</label>
+                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: textColor }} onClick={() => handleShowSketchColor("text")}/>
+                    <If condition={showSketchColor === "text"}>
+                        <SketchPicker onChange={handleTextColor} color={textColor} />
                     </If>
                 </Form.Field>
             </Form.Group>
+            <Header as='h3'>Position</Header>
             <Form.Group widths='equal'>
-                <Form.Field>
-                    <label>Set button icon</label>
-                    <input onChange={handleButtonIcon} value={buttonIcon} placeholder='icon-name'/>
-                </Form.Field>
-                <Form.Field>
-                    <label>Set close button icon</label>
-                    <input value={closeButtonIcon} onChange={handleCloseButtonIcon} placeholder='icon-name' />
+                <Form.Field style={{ maxWidth: '300px' }}>
+                    <label>Position value</label>
+                    <select onChange={handlePosition} value={position}>
+                        {renderPositionOptions()}
+                    </select>
                 </Form.Field>
             </Form.Group>
+            <Header as='h3'>Icon</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Set button size</label>
-                    <select onChange={handleButtonSize} value={buttonSize}>
+                    <label>Name</label>
+                    <input onChange={handleIcon} value={icon} placeholder='Icon name'/>
+                </Form.Field>
+                <Form.Field>
+                    <label>Icon size</label>
+                    <select onChange={handleIconSize} value={iconSize}>
                         {renderSizeOptions()}
                     </select>
                 </Form.Field>
                 <Form.Field>
-                    <label>Set close button size</label>
-                    <select onChange={handleCloseButtonSize} value={closeButtonSize}>
-                        {renderSizeOptions()}
-                    </select>
+                    <label>Icon color</label>
+                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: iconColor }} onClick={() => handleShowSketchColor("icon")}/>
+                    <If condition={showSketchColor === "icon"}>
+                        <SketchPicker onChange={handleIconColor} color={iconColor} />
+                    </If>
+                </Form.Field>
+            </Form.Group>
+            <Header as='h3'>Button</Header>
+            <Form.Group widths='equal'>
+                <Form.Field>
+                    <label>Text</label>
+                    <input onChange={handleButtonText} value={buttonText} placeholder='Set text'/>
+                </Form.Field>
+                <Form.Field>
+                    <label>Button Text Color</label>
+                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonTextColor }} onClick={() => handleShowSketchColor("buttonText")}/>
+                    <If condition={showSketchColor === "buttonText"}>
+                        <SketchPicker onChange={handleButtonTextColor} color={buttonTextColor} />
+                    </If>
+                </Form.Field>
+                <Form.Field>
+                    <label>Button background color</label>
+                    <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonBackgroundColor }} onClick={() => handleShowSketchColor("buttonBackground")}/>
+                    <If condition={showSketchColor === "buttonBackground"}>
+                        <SketchPicker onChange={handleButtonBackgroundColor} color={buttonBackgroundColor} />
+                    </If>
                 </Form.Field>
             </Form.Group>
             <span>Supported icons name: <a href="https://react.semantic-ui.com/elements/icon/" target="_blank" rel="noopener noreferrer">React Semantic UI</a></span>

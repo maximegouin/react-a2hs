@@ -6,6 +6,10 @@
     margin-top: 20px !important;
 }
 
+.form-play-props > .header {
+    color: white !important;
+}
+
 .form-play-props > .fields > .field > label {
     color: white !important;
 }

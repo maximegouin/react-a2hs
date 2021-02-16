@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { If } from 'react-if'
@@ -5,20 +6,20 @@ import A2HSButton from './components/A2HSButton'
 import 'semantic-ui-css/semantic.min.css'
 import './styles.module.css'
 
-export const A2HSProvider = ({ children, ...props }) => {
-  const [showA2HS, setShowA2HS] = useState(false)
+export const A2HSProvider = ({ children, forceShow = false, ...props }) => {
+  const [showA2HS, setShowA2HS] = useState(true)
   const [deferredPrompt, setDeferredPrompt] = useState()
 
-  const isAppInstalled = async () => {
+  // Future use maybe
+  /* const isAppInstalled = async () => {
     const relatedApps = await navigator.getInstalledRelatedApps()
     console.log(relatedApps)
     relatedApps.forEach((app) => {
       console.log(app.id, app.platform, app.url)
     })
-  }
+  } */
 
   useEffect(() => {
-    isAppInstalled()
     window.addEventListener('beforeinstallprompt', (e) => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       e.preventDefault()
@@ -27,8 +28,7 @@ export const A2HSProvider = ({ children, ...props }) => {
       // Update UI to notify the user they can add to home screen
       setShowA2HS(true)
     })
-    window.addEventListener('appinstalled', (e) => {
-      console.log(e)
+    window.addEventListener('appinstalled', () => {
       // Optionally, send analytics event to indicate successful install
       console.log('PWA was installed')
       setShowA2HS(false)
@@ -51,7 +51,7 @@ export const A2HSProvider = ({ children, ...props }) => {
 
   return (
     <React.Fragment>
-      <If condition={showA2HS}>
+      <If condition={showA2HS || forceShow}>
         <A2HSButton
           {...props}
           handleClick={handleClick}
@@ -64,5 +64,6 @@ export const A2HSProvider = ({ children, ...props }) => {
 }
 
 A2HSProvider.propTypes = {
+  forceShow: PropTypes.bool,
   children: PropTypes.node.isRequired
 }

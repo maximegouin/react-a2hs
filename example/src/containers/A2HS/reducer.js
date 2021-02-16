@@ -1,17 +1,20 @@
 import * as constants from './constants';
 
 const initialState = {
-    title: 'Add to home screen',
-    position: 'bottom-left',
-    titleColor: 'white',
-    buttonIcon: 'download',
-    buttonColor: 'black',
-    buttonSize: 'medium',
-    buttonIconColor: 'white',
-    closeButtonSize: 'small',
-    closeButtonIcon: 'close',
-    closeButtonIconColor: 'bottom-left',
-    closeButtonColor: 'bottom-left',
+  title: 'Install this app',
+  titleSize: 'h2',
+  titleColor: 'black',
+  text: 'Add this app to your home screen for fast access',
+  textSize: 14,
+  textColor: 'black',
+  position: 'bottom-left',
+  icon: 'download',
+  iconSize: 'big',
+  iconColor: 'black',
+  buttonText: 'Add',
+  buttonTextColor: 'black',
+  buttonBackgroundColor: 'white',
+  forceShow: false
 };
 
 const A2HSReducer = (state = initialState, action) => {
@@ -22,64 +25,82 @@ const A2HSReducer = (state = initialState, action) => {
         title: action.payload,
       };
     }
-    case constants.SET_POSITION: {
-      return {
-        ...state,
-        position: action.payload,
-      };
-    }
     case constants.SET_TITLE_COLOR: {
       return {
         ...state,
         titleColor: action.payload,
       };
     }
-    case constants.SET_BUTTON_ICON: {
+    case constants.SET_TITLE_SIZE: {
       return {
         ...state,
-        buttonIcon: action.payload,
+        titleSize: action.payload,
       };
     }
-    case constants.SET_BUTTON_COLOR: {
+    case constants.SET_TEXT: {
       return {
         ...state,
-        buttonColor: action.payload,
+        text: action.payload,
       };
     }
-    case constants.SET_BUTTON_SIZE: {
+    case constants.SET_TEXT_SIZE: {
       return {
         ...state,
-        buttonSize: action.payload,
+        textSize: action.payload,
       };
     }
-    case constants.SET_BUTTON_ICON_COLOR: {
+    case constants.SET_TEXT_COLOR: {
       return {
         ...state,
-        buttonIconColor: action.payload,
+        textColor: action.payload,
       };
     }
-    case constants.SET_CLOSE_BUTTON_SIZE: {
+    case constants.SET_POSITION: {
       return {
         ...state,
-        closeButtonSize: action.payload,
+        position: action.payload,
       };
     }
-    case constants.SET_CLOSE_BUTTON_ICON: {
+    case constants.SET_ICON: {
       return {
         ...state,
-        closeButtonIcon: action.payload,
+        icon: action.payload,
       };
     }
-    case constants.SET_CLOSE_BUTTON_ICON_COLOR: {
+    case constants.SET_ICON_SIZE: {
       return {
         ...state,
-        closeButtonIconColor: action.payload,
+        iconSize: action.payload,
       };
     }
-    case constants.SET_CLOSE_BUTTON_COLOR: {
+    case constants.SET_ICON_COLOR: {
       return {
         ...state,
-        closeButtonColor: action.payload,
+        iconColor: action.payload,
+      };
+    }
+    case constants.SET_BUTTON_TEXT: {
+      return {
+        ...state,
+        buttonText: action.payload,
+      };
+    }
+    case constants.SET_BUTTON_TEXT_COLOR: {
+      return {
+        ...state,
+        buttonTextColor: action.payload,
+      };
+    }
+    case constants.SET_BUTTON_BACKGROUND_COLOR: {
+      return {
+        ...state,
+        buttonBackgroundColor: action.payload,
+      };
+    }
+    case constants.SET_FORCE_SHOW: {
+      return {
+        ...state,
+        forceShow: action.payload,
       };
     }
     default:

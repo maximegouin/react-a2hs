@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon } from 'semantic-ui-react'
+import { If } from 'react-if'
+import { Message, Header, Icon, Button } from 'semantic-ui-react'
 import {
   POSITION_BOTTOM_LEFT,
   POSITION_BOTTOM_RIGHT,
@@ -10,17 +11,19 @@ import {
 import styles from './styles.css'
 
 const A2HSButton = ({
-  title = 'Add to home screen',
+  title,
+  titleSize = 'h2',
+  titleColor = 'black',
+  text,
+  textSize = 14,
+  textColor = 'black',
   position = 'bottom-left',
-  titleColor = 'white',
-  buttonIcon = 'download',
-  buttonColor = 'black',
-  buttonSize = 'medium',
-  buttonIconColor = 'white',
-  closeButtonSize = 'small',
-  closeButtonIcon = 'close',
-  closeButtonIconColor = 'gray',
-  closeButtonColor = 'gray',
+  icon,
+  iconSize = 'big',
+  iconColor = 'black',
+  buttonText = 'Add',
+  buttonTextColor = 'black',
+  buttonBackgroundColor = 'white',
   handleClick,
   handleClose
 }) => {
@@ -39,48 +42,83 @@ const A2HSButton = ({
     }
   }, [position])
 
+  const getTextFontSize = useCallback(() => {
+    return `${textSize}px`
+  }, [textSize])
+
   return (
     <div className={`${styles.a2hsContainer} ${positionClassName()}`}>
-      <Button
-        icon
-        style={{
-          backgroundColor: buttonColor
-        }}
-        size={buttonSize}
-        onClick={handleClick}
+      <Message
+        compact
+        onDismiss={handleClose}
+        style={{ display: 'flex', flexDirection: 'row' }}
       >
-        <Icon name={buttonIcon} style={{ color: buttonIconColor }} />
-        <span className={styles.buttonText} style={{ color: titleColor }}>
-          {title}
-        </span>
-      </Button>
-      <Button
-        icon
-        circular
-        size={closeButtonSize}
-        style={{ backgroundColor: closeButtonColor }}
-        onClick={handleClose}
-      >
-        <Icon name={closeButtonIcon} style={{ color: closeButtonIconColor }} />
-      </Button>
+        <If condition={icon}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: '5px'
+            }}
+          >
+            <Icon name={icon} size={iconSize} style={{ color: iconColor }} />
+          </div>
+        </If>
+        <div>
+          <If condition={title}>
+            <Header
+              as={titleSize}
+              className='message-header'
+              style={{ color: titleColor }}
+            >
+              {title}
+            </Header>
+          </If>
+          <If condition={text}>
+            <p style={{ color: textColor, fontSize: getTextFontSize() }}>
+              {text}
+            </p>
+          </If>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: '5px',
+            marginLeft: '5px'
+          }}
+        >
+          <Button
+            onClick={handleClick}
+            style={{
+              color: buttonTextColor,
+              backgroundColor: buttonBackgroundColor
+            }}
+          >
+            {buttonText}
+          </Button>
+        </div>
+      </Message>
     </div>
   )
 }
 
 A2HSButton.propTypes = {
   title: PropTypes.string,
-  icon: PropTypes.string,
-  position: PropTypes.string,
+  titleSize: PropTypes.string,
   titleColor: PropTypes.string,
-  buttonColor: PropTypes.string,
-  buttonSize: PropTypes.string,
-  buttonIconColor: PropTypes.string,
-  closeButtonSize: PropTypes.string,
-  closeButtonIcon: PropTypes.string,
-  closeButtonIconColor: PropTypes.string,
-  closeButtonColor: PropTypes.string,
-  handleClick: PropTypes.func.isRequired,
-  handleClose: PropTypes.func.isRequired
+  text: PropTypes.string,
+  textSize: PropTypes.string,
+  textColor: PropTypes.string,
+  position: PropTypes.string,
+  icon: PropTypes.string,
+  iconSize: PropTypes.string,
+  iconColor: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonTextColor: PropTypes.string,
+  buttonBackgroundColor: PropTypes.string,
+  handleClick: PropTypes.func,
+  handleClose: PropTypes.func
 }
 
 export default A2HSButton
