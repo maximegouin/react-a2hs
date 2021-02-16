@@ -5,7 +5,7 @@ import BrowserSupport from 'containers/BrowserSupport';
 import A2HS from 'containers/A2HS';
 
 const Routes = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={`${process.env.PUBLIC_URL}/`}>
         <Switch>
           <Route path="/" exact>
               <Home />
