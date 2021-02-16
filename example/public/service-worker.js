@@ -1,6 +1,6 @@
-import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
-import { BroadcastUpdatePlugin } from 'workbox-broadcast-update';
+const { registerRoute } = require('workbox-routing');
+const { StaleWhileRevalidate } = require('workbox-strategies');
+const { BroadcastUpdatePlugin } = require('workbox-broadcast-update');
 
 registerRoute(
     ({request}) => request.destination === 'script' ||
