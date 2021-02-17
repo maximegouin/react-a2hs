@@ -1,42 +1,62 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a0073cec1797453683bdb50aaba6637f",
+    "revision": "cd1e0c796a697dc268df2f3b2fb9d822",
     "url": "/react-a2hs/index.html"
   },
   {
-    "url": "/react-a2hs/precache-manifest.094d21f0400b0d5f8f1d7165ffef7a68.js"
+    "url": "/react-a2hs/precache-manifest.2133d9f607456f20963447b6d43ca21c.js"
   },
   {
-    "revision": "bc466e680a7e090ad0a3db705107fef8",
+    "revision": "44d238cbd41e031e040b0ecf08b77e22",
     "url": "/react-a2hs/service-worker.js"
   },
   {
-    "revision": "59ee80776f0a5778ffa2",
-    "url": "/react-a2hs/static/css/2.18ad277d.chunk.css"
+    "revision": "a4bbf6e3da0669517555",
+    "url": "/react-a2hs/static/css/2.6162837f.chunk.css"
   },
   {
-    "revision": "fda8ad4d8408d1aa9c15",
+    "revision": "0a922f125920128c6fc5d28770d9dd00",
+    "url": "/react-a2hs/static/css/2.6162837f.chunk.css.map"
+  },
+  {
+    "revision": "6f0d28e533fc527dafb8",
     "url": "/react-a2hs/static/css/main.8da9edeb.chunk.css"
   },
   {
-    "revision": "59ee80776f0a5778ffa2",
-    "url": "/react-a2hs/static/js/2.85d86944.chunk.js"
+    "revision": "fa4b146b6de43188b11682472506b6c2",
+    "url": "/react-a2hs/static/css/main.8da9edeb.chunk.css.map"
+  },
+  {
+    "revision": "a4bbf6e3da0669517555",
+    "url": "/react-a2hs/static/js/2.1781f379.chunk.js"
   },
   {
     "revision": "1a1a42c150bd05496b97b265c552c789",
-    "url": "/react-a2hs/static/js/2.85d86944.chunk.js.LICENSE.txt"
+    "url": "/react-a2hs/static/js/2.1781f379.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fda8ad4d8408d1aa9c15",
-    "url": "/react-a2hs/static/js/main.027de631.chunk.js"
+    "revision": "a4bbf6e3da0669517555",
+    "url": "/react-a2hs/static/js/2.1781f379.chunk.js.map"
+  },
+  {
+    "revision": "6f0d28e533fc527dafb8",
+    "url": "/react-a2hs/static/js/main.741ea5c5.chunk.js"
   },
   {
     "revision": "6fce53c7c7713ebf61712cc2929746fa",
-    "url": "/react-a2hs/static/js/main.027de631.chunk.js.LICENSE.txt"
+    "url": "/react-a2hs/static/js/main.741ea5c5.chunk.js.LICENSE.txt"
+  },
+  {
+    "revision": "6f0d28e533fc527dafb8",
+    "url": "/react-a2hs/static/js/main.741ea5c5.chunk.js.map"
   },
   {
     "revision": "a997d8b740072a5b740c",
     "url": "/react-a2hs/static/js/runtime-main.c75125fb.js"
+  },
+  {
+    "revision": "a997d8b740072a5b740c",
+    "url": "/react-a2hs/static/js/runtime-main.c75125fb.js.map"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
@@ -47,20 +67,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-a2hs/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "a1a749e89f578a49306ec2b055c073da",
-    "url": "/react-a2hs/static/media/brand-icons.a1a749e8.svg"
-  },
-  {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
     "url": "/react-a2hs/static/media/brand-icons.c5ebe0b3.ttf"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
     "url": "/react-a2hs/static/media/brand-icons.e8c322de.woff2"
-  },
-  {
-    "revision": "9c74e172f87984c48ddf5c8108cabe67",
-    "url": "/react-a2hs/static/media/flags.9c74e172.png"
   },
   {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
@@ -71,10 +83,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-a2hs/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "962a1bf31c081691065fe333d9fa8105",
-    "url": "/react-a2hs/static/media/icons.962a1bf3.svg"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/react-a2hs/static/media/icons.b87b9ba5.ttf"
   },
@@ -83,16 +91,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-a2hs/static/media/icons.faff9214.woff"
   },
   {
-    "revision": "03a8eedf7939f481aba371186a0eac4f",
-    "url": "/react-a2hs/static/media/logo.03a8eedf.png"
-  },
-  {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
     "url": "/react-a2hs/static/media/outline-icons.701ae6ab.eot"
-  },
-  {
-    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
-    "url": "/react-a2hs/static/media/outline-icons.82f60bd0.svg"
   },
   {
     "revision": "ad97afd3337e8cda302d10ff5a4026b8",

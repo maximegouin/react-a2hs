@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-a2hs/precache-manifest.71bfe3104c4ec04700311ece106f4926.js"
+  "/react-a2hs/precache-manifest.afb905d9e6cc32a65607e06008170ad1.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -30,3 +30,6 @@ self.addEventListener('message', (event) => {
  */
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+
+workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg|ico)$/, new workbox.strategies.CacheFirst({ "cacheName":"images", plugins: [new workbox.expiration.Plugin({ maxEntries: 50, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute(/manifest.json/, new workbox.strategies.CacheFirst({ "cacheName":"manifest", plugins: [] }), 'GET');
