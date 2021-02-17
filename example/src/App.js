@@ -4,8 +4,8 @@ import { A2HSProvider } from 'react-a2hs'
 import { SET_SHOW_SERVICE_WORKER_MODAL } from 'containers/Global/constants'
 import ServiceWorkerModal from 'components/Shared/ServiceWorkerModal'
 import Routes from './routes'
+import { register as registerWorkBox } from './workboxWindow'
 import 'react-a2hs/dist/index.css'
-const channelSwCacheUpdates = new BroadcastChannel('sw-cache-updates');
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,11 +26,11 @@ const App = () => {
     forceShow
   } = useSelector(state => state.A2HS)
 
-  channelSwCacheUpdates.onmessage = ({ data }) => {
-    if(data === 'sw-updated') {
-      dispatch({ type: SET_SHOW_SERVICE_WORKER_MODAL })
-    }
+  const showModal = () => {
+    dispatch({ type: SET_SHOW_SERVICE_WORKER_MODAL })
   }
+
+  registerWorkBox(showModal)
   
   return (
     <A2HSProvider

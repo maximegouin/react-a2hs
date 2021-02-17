@@ -1,5 +1,3 @@
-const channelSwCacheUpdates = new BroadcastChannel('sw-cache-updates');
-
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -46,60 +44,8 @@ export function register(config) {
     }
 }
 
-function registerValidSW(swUrl, config) {
+function registerValidSW(swUrl) {
     navigator.serviceWorker.register(swUrl)
-    .then((registration) => {
-        registration.onupdatefound = () => {
-            console.log("new version of service worker found")
-            console.log(registration)
-        
-            if(registration.active) {
-                registration.active.onstatechange = () => {
-                    console.log("the controller has changed")
-                    let refreshing;
-                    if (refreshing) return;
-                    refreshing = true;
-                    window.location.reload();
-                };
-            }
-            
-            registration.active.onstatechange = () => {
-                console.log("the controller has changed")
-                let refreshing;
-                if (refreshing) return;
-                refreshing = true;
-                window.location.reload();
-            };
-            
-            const installingWorker = registration.installing;
-            if (installingWorker == null) {
-                return;
-            }
-            installingWorker.onstatechange = () => {
-                if (installingWorker.state === 'installed') {
-                    console.log("the new service worker is installed")
-                    if (navigator.serviceWorker.controller) {
-                        console.log("old service worker still active")
-                        console.log(registration)
-                        // At this point, the updated precached content has been fetched,
-                        // but the previous service worker will still serve the older
-                        // content until all client tabs are closed.
-                        channelSwCacheUpdates.postMessage('sw-updated');
-                    } else {
-                        // At this point, everything has been precached.
-                        // It's the perfect time to display a
-                        // "Content is cached for offline use." message.
-                        console.log('Content is cached for offline use.');
-
-                        // Execute callback
-                        if (config && config.onSuccess) {
-                            config.onSuccess(registration);
-                        }
-                    }
-                }
-            };
-        };
-    })
     .catch((error) => {
         console.error('Error during service worker registration:', error);
     });

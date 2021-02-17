@@ -15,6 +15,7 @@ module.exports = {
       ...config.plugins,
       new GenerateSW({
         skipWaiting: false,
+        clientsClaim: true,
         exclude: [/\.(?:png|jpg|jpeg|svg|ico)$/],
         runtimeCaching: [
           {

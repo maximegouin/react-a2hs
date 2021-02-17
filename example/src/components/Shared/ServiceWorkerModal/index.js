@@ -13,7 +13,6 @@ const ServiceWorkerModal = () => {
     }
     const onUpdate = () => {
         navigator.serviceWorker.ready.then(registration => {
-            console.log(registration)
             registration.waiting.postMessage({ type: 'SKIP_WAITING' });
         });
     }
