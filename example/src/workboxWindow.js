@@ -2,7 +2,7 @@ import { Workbox } from 'workbox-window';
 
 export const register = (showModal) => {
   if ('serviceWorker' in navigator) {
-    const wb = new Workbox('/service-worker.js');
+    const wb = new Workbox(`${process.env.PUBLIC_URL}/service-worker.js`);
 
     wb.addEventListener('activated', (event) => {
       if (!event.isUpdate) {
