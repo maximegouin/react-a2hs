@@ -15,6 +15,26 @@ module.exports = {
       ...config.plugins,
       new GenerateSW({
         skipWaiting: false,
+        exclude: [/\.(?:png|jpg|jpeg|svg|ico)$/],
+        runtimeCaching: [
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|ico)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images',
+              expiration: {
+                maxEntries: 50,
+              },
+            },
+          },
+          {
+            urlPattern: /manifest.json/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'manifest',
+            },
+          }
+        ],
       })
     ]
 
