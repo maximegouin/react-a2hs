@@ -7,7 +7,7 @@ import 'semantic-ui-css/semantic.min.css'
 import './styles.module.css'
 
 export const A2HSProvider = ({ children, forceShow = false, ...props }) => {
-  const [showA2HS, setShowA2HS] = useState(true)
+  const [showA2HS, setShowA2HS] = useState(false)
   const [deferredPrompt, setDeferredPrompt] = useState()
 
   // Future use maybe
