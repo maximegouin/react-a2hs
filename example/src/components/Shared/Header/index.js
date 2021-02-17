@@ -15,7 +15,7 @@ const CustomHeader = ({
     <Menu.Item onClick={handleNavigation} value="/">
       <img src={LogoPwa} alt="logo" value="/" />
     </Menu.Item>
-    <Menu.Item onClick={handleNavigation} value="/installable">
+    <Menu.Item onClick={handleNavigation}>
       React-A2HS Demo
     </Menu.Item>
   </Menu>

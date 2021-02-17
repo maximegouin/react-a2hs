@@ -13,7 +13,9 @@ module.exports = {
 
     config.plugins = [
       ...config.plugins,
-      new GenerateSW()
+      new GenerateSW({
+        skipWaiting: false,
+      })
     ]
 
     return config
