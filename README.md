@@ -22,8 +22,7 @@ const App = () => (
 	<A2HSProvider
 		title={title}
 		position={position}
-		titleColor={titleColor}
-		buttonIcon={buttonIcon}
+		{...props}
 	>
 		{children}
 	</A2HSProvider>
