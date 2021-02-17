@@ -3,7 +3,7 @@ import * as constants from './constants';
 const initialState = {
   showSidebar: false,
   showServiceWorkerModal: false,
-  workboxBroadcastUpdate: {},
+  networkMode: null,
 };
 
 const GlobalReducer = (state = initialState, action) => {
@@ -18,7 +18,12 @@ const GlobalReducer = (state = initialState, action) => {
       return {
         ...state,
         showServiceWorkerModal: !state.showServiceWorkerModal,
-        workboxBroadcastUpdate: action.payload,
+      };
+    }
+    case constants.SET_NETWORK_MODE: {
+      return {
+        ...state,
+        networkMode: action.payload,
       };
     }
     default:

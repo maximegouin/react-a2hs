@@ -2,6 +2,7 @@ import React from 'react'
 
 export const SHOW_SIDEBAR = "SHOW_SIDEBAR"
 export const SET_SHOW_SERVICE_WORKER_MODAL = "SET_SHOW_SERVICE_WORKER_MODAL"
+export const SET_NETWORK_MODE = "SET_NETWORK_MODE"
 
 export const PANELS_APP_PILLARS = [
     {

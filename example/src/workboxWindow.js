@@ -1,6 +1,7 @@
 import { Workbox } from 'workbox-window';
+import { SET_SHOW_SERVICE_WORKER_MODAL, SET_NETWORK_MODE } from 'containers/Global/constants';
 
-export const register = (showModal) => {
+export const register = (dispatch) => {
   if ('serviceWorker' in navigator) {
     const wb = new Workbox(`${process.env.PUBLIC_URL}/service-worker.js`);
 
@@ -13,9 +14,17 @@ export const register = (showModal) => {
     });
 
     wb.addEventListener('waiting', () => {
-      showModal();
+      dispatch({ type: SET_SHOW_SERVICE_WORKER_MODAL })
     });
 
     wb.register();
+
+    window.addEventListener('offline', () => {
+      dispatch({ type: SET_NETWORK_MODE, payload: 'offline' })
+    })
+
+    window.addEventListener('online', () => {
+      dispatch({ type: SET_NETWORK_MODE, payload: 'online' })
+    })
   }
 }
