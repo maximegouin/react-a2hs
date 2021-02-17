@@ -22,13 +22,13 @@ const CustomSidebar = ({
                 <Icon name='home' value='/'/>
                 Home
             </Menu.Item>
-            <Menu.Item as='a' onClick={handleNavigation} value='/browser-support'>
-                <Icon name='browser' value='/browser-support' />
-                Browsers
+            <Menu.Item as='a' onClick={handleNavigation} value='/prerequisites'>
+                <Icon name='cogs' value='/prerequisites' />
+                Prerequisites
             </Menu.Item>
-            <Menu.Item as='a' onClick={handleNavigation} value='/installable'>
-                <Icon name='download' value='/installable' />
-                Installable
+            <Menu.Item as='a' onClick={handleNavigation} value='/supported-browsers'>
+                <Icon name='browser' value='/supported-browsers' />
+                Supported browsers
             </Menu.Item>
         </Sidebar>
 

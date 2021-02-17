@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { A2HSProvider } from 'react-a2hs'
-import { SET_SHOW_SERVICE_WORKER_MODAL } from 'containers/Home/constants'
+import { SET_SHOW_SERVICE_WORKER_MODAL } from 'containers/Global/constants'
 import ServiceWorkerModal from 'components/Shared/ServiceWorkerModal'
 import Routes from './routes'
 import 'react-a2hs/dist/index.css'

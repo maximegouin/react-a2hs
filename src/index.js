@@ -28,11 +28,6 @@ export const A2HSProvider = ({ children, forceShow = false, ...props }) => {
       // Update UI to notify the user they can add to home screen
       setShowA2HS(true)
     })
-    window.addEventListener('appinstalled', () => {
-      // Optionally, send analytics event to indicate successful install
-      console.log('PWA was installed')
-      setShowA2HS(false)
-    })
   }, [])
 
   const handleClick = () => {

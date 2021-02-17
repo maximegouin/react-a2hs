@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Modal, Button, Icon, Header } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux'
 import { If } from 'react-if'
-import { SET_SHOW_SERVICE_WORKER_MODAL } from 'containers/Home/constants'
+import { SET_SHOW_SERVICE_WORKER_MODAL } from 'containers/Global/constants'
 
 const ServiceWorkerModal = () => {
     const dispatch = useDispatch()

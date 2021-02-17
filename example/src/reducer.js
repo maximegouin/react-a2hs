@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import GlobalReducer from 'containers/Home/reducer';
-import A2HSReducer from 'containers/A2HS/reducer';
+import GlobalReducer from 'containers/Global/reducer';
+import A2HSReducer from 'containers/Home/reducer';
 
 const rootReducer = combineReducers({
   Global: GlobalReducer,

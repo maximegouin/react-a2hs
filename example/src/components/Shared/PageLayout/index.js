@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import CustomHeader from 'components/Shared/Header';
 import CustomSidebar from 'components/Shared/Sidebar';
-import { SHOW_SIDEBAR } from 'containers/Home/constants';
+import { SHOW_SIDEBAR } from 'containers/Global/constants';
 
 const PageLayout = ({
     children,

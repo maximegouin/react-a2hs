@@ -20,7 +20,7 @@ import {
     SET_BUTTON_TEXT_COLOR,
     SET_BUTTON_TEXT,
     SET_FORCE_SHOW
-} from 'containers/A2HS/constants'
+} from 'containers/Home/constants'
 
 const PlayForm = () => {
     const dispatch = useDispatch()
