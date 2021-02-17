@@ -30,19 +30,22 @@ const App = () => (
 )
 ```
 ## Props
-| name                 | default            |
-|----------------------|--------------------|
-| title                | Add to home screen |
-| position             | bottom-left        |
-| titleColor           | white              |
-| buttonIcon           | download           |
-| buttonColor          | black              |
-| buttonSize           | medium             |
-| buttonIconColor      | white              |
-| closeButtonSize      | small              |
-| closeButtonIcon      | close              |
-| closeButtonIconColor | gray               |
-| closeButtonColor     | gray               |
+| name                  | type    | default     | info                                                            |
+|-----------------------|---------|-------------|-----------------------------------------------------------------|
+| title                 | string  |             |                                                                 |
+| titleSize             | string  | h2          | Options: h1, h2, h3, h4, h5, h6                                 |
+| titleColor            | string  | black       |                                                                 |
+| text                  | string  |             |                                                                 |
+| textSize              | int     | 14          | Size in px                                                      |
+| textColor             | string  | black       |                                                                 |
+| position              | string  | bottom-left | Options: bottom_left, bottom_right, top_left, top_right         |
+| icon                  | string  |             | List of icons: https://react.semantic-ui.com/elements/icon/     |
+| iconSize              | string  | big         | Options: mini, tiny, small, large, big, huge, massive           |
+| iconColor             | string  | black       |                                                                 |
+| buttonText            | string  | Yes         |                                                                 |
+| buttonTextColor       | string  | black       |                                                                 |
+| buttonBackgroundColor | string  | white       |                                                                 |
+| forceShow             | boolean | false       | Use in development mode to display button without prerequisites |
 
 
 ## License
