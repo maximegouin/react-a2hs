@@ -2,27 +2,37 @@ import React from 'react';
 import { Container, Header, Segment } from 'semantic-ui-react';
 import PageLayout from 'components/Shared/PageLayout';
 import PlayForm from 'components/PlayForm';
+import TableProps from 'components/TableProps';
 
 const A2HS = () => (
     <PageLayout>
-        <Container fluid>
-            <div>
+        <div style={{ marginBottom: '150px' }}>
+            <Container fluid className="bg-black">
                 <Header as='h1' attached='top' className="custom-page-header">
-                    Install a PWA
+                    About
                 </Header>
                 <Segment attached className="custom-page-segment">
-                    <p>A PWA can be installed on your desktop or mobile.</p>
-                    <p>It gives to the user a new experience with a standalone screen and feels like platform-specific app</p>
-                    <p>You need to create a <i>manifest.json</i> file, serve your app over https and be on a supported browser to have the possibility to install the app.</p>
-                    <p className="custom-link">Check the <a href="https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent" target="_blank" rel="noopener noreferrer">BeforeInstallPromptEvent</a> to know supported browsers.</p>
-                    <p>The react-a2hs package let you quickly add a custom installable button for your PWA.</p>
-                    <Header as='h3' attached='top' className="custom-page-header">
-                        Try it, play with props
-                    </Header>
-                    <PlayForm />
+                    <p>This is the demo page of react-a2HS package. <b>View on <a href="https://github.com/maximegouin/react-a2hs" target="_blank" rel="noreferrer">GitHub</a></b></p>
+                    <p>
+                        Use this package to provide a custom app installation for your React PWA.
+                        You can easily add an add to home screen button, that will be displayed only on supported browsers and if the app hasn't been previously installed.
+                    </p>
+                    <p>Please check the prerequisites before using this package</p>
                 </Segment>
-            </div>
             </Container>
+            <Container fluid className="bg-black">
+                <Header as='h1' attached='top' className="custom-page-header">
+                    Props
+                </Header>
+                <TableProps />
+            </Container>
+            <Container fluid className="bg-black">
+                <Header as='h1' attached='top' className="custom-page-header">
+                    Play
+                </Header>
+                <PlayForm />
+            </Container>
+        </div>
     </PageLayout>
 )
 

@@ -4,6 +4,10 @@
     min-height: 100vh !important;
 }
 
+.custom-sidebar > .pusher > .segment {
+    padding: 0 !important;
+}
+
 .custom-sidebar > .menu > a > .icon {
     color: #5a0fc8 !important;
 }

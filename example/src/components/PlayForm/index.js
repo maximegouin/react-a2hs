@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { If } from 'react-if'
-import { Form, Label, Header, Radio } from 'semantic-ui-react'
+import { Form, Label, Header, Radio, Divider } from 'semantic-ui-react'
 import { SketchPicker } from 'react-color'
 import { renderPositionOptions, renderSizeOptions, renderTitleSizeOptions } from './utils'
 import './styles.css'
@@ -106,102 +106,117 @@ const PlayForm = () => {
 
     return (
         <Form className="form-play-props">
-            <Header as='h3'>Force show</Header>
+            <Header as='h3'># Force show</Header>
             <Form.Group widths='equal'>
                 <Form.Field style={{ display: 'flex', flexDirection: 'row' }}>
                     <label style={{ marginRight: '20px' }}>Force to show:</label>
                     <Radio toggle checked={forceShow} onChange={handleForceShow} />
                 </Form.Field>
             </Form.Group>
-            <Header as='h3'>Header</Header>
+
+            <Divider />
+
+            <Header as='h3'># Header</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Title</label>
+                    <label>Title (title)</label>
                     <input onChange={handleTitle} value={title} placeholder='Set title'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Title size</label>
+                    <label>Title size (titleSize)</label>
                     <select onChange={handleTitleSize} value={titleSize}>
                         {renderTitleSizeOptions()}
                     </select>
                 </Form.Field>
                 <Form.Field>
-                    <label>Title color</label>
+                    <label>Title color (titleColor)</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: titleColor }} onClick={() => handleShowSketchColor("title")}/>
                     <If condition={showSketchColor === "title"}>
                         <SketchPicker onChange={handleTitleColor} color={titleColor} />
                     </If>
                 </Form.Field>
             </Form.Group>
-            <Header as='h3'>Text</Header>
+
+            <Divider />
+
+            <Header as='h3'># Text</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Text</label>
+                    <label>Text (text)</label>
                     <input onChange={handleText} value={text} placeholder='Set text'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Text size (px)</label>
+                    <label>Text size (textSize)</label>
                     <input type="number" onChange={handleTextSize} value={textSize} />
                 </Form.Field>
                 <Form.Field>
-                    <label>Text color</label>
+                    <label>Text color (textColor)</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: textColor }} onClick={() => handleShowSketchColor("text")}/>
                     <If condition={showSketchColor === "text"}>
                         <SketchPicker onChange={handleTextColor} color={textColor} />
                     </If>
                 </Form.Field>
             </Form.Group>
-            <Header as='h3'>Position</Header>
+
+            <Divider />
+
+            <Header as='h3'># Position</Header>
             <Form.Group widths='equal'>
                 <Form.Field style={{ maxWidth: '300px' }}>
-                    <label>Position value</label>
+                    <label>Position value (position)</label>
                     <select onChange={handlePosition} value={position}>
                         {renderPositionOptions()}
                     </select>
                 </Form.Field>
             </Form.Group>
-            <Header as='h3'>Icon</Header>
+
+            <Divider />
+
+            <Header as='h3'># Icon</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Name</label>
+                    <label>Name (icon)</label>
                     <input onChange={handleIcon} value={icon} placeholder='Icon name'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Icon size</label>
+                    <label>Icon size (iconSize)</label>
                     <select onChange={handleIconSize} value={iconSize}>
                         {renderSizeOptions()}
                     </select>
                 </Form.Field>
                 <Form.Field>
-                    <label>Icon color</label>
+                    <label>Icon color (iconColor)</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: iconColor }} onClick={() => handleShowSketchColor("icon")}/>
                     <If condition={showSketchColor === "icon"}>
                         <SketchPicker onChange={handleIconColor} color={iconColor} />
                     </If>
                 </Form.Field>
             </Form.Group>
-            <Header as='h3'>Button</Header>
+
+            <Divider />
+
+            <Header as='h3'># Button</Header>
             <Form.Group widths='equal'>
                 <Form.Field>
-                    <label>Text</label>
+                    <label>Text (buttonText)</label>
                     <input onChange={handleButtonText} value={buttonText} placeholder='Set text'/>
                 </Form.Field>
                 <Form.Field>
-                    <label>Button Text Color</label>
+                    <label>Button Text Color (buttonTextColor)</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonTextColor }} onClick={() => handleShowSketchColor("buttonText")}/>
                     <If condition={showSketchColor === "buttonText"}>
                         <SketchPicker onChange={handleButtonTextColor} color={buttonTextColor} />
                     </If>
                 </Form.Field>
                 <Form.Field>
-                    <label>Button background color</label>
+                    <label>Button background color (buttonBackgroundColor)</label>
                     <Label className="button-pick-color" size="huge" style={{ backgroundColor: buttonBackgroundColor }} onClick={() => handleShowSketchColor("buttonBackground")}/>
                     <If condition={showSketchColor === "buttonBackground"}>
                         <SketchPicker onChange={handleButtonBackgroundColor} color={buttonBackgroundColor} />
                     </If>
                 </Form.Field>
             </Form.Group>
-            <span>Supported icons name: <a href="https://react.semantic-ui.com/elements/icon/" target="_blank" rel="noopener noreferrer">React Semantic UI</a></span>
+            <span className="white">Supported icons name: <a href="https://react.semantic-ui.com/elements/icon/" target="_blank" rel="noopener noreferrer">React Semantic UI</a></span>
         </Form>
     )
 }
