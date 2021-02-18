@@ -1,3 +1,6 @@
+import toUint8Array from 'urlb64touint8array';
+import { applicationServerPublicKey } from '../config';
+
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -25,27 +28,58 @@ export function register(config) {
             if (isLocalhost) {
                 // This is running on localhost. Let's check if a service worker still exists or not.
                 checkValidServiceWorker(swUrl, config);
-
-                // Add some additional logging to localhost, pointing developers to the
-                // service worker/PWA documentation.
-                navigator.serviceWorker.ready.then(() => {
-                    console.log(
-                        'This web app is being served cache-first by a service ' +
-                        'worker. To learn more, visit x'
-                    );
-                });
             } else {
                 // Is not localhost. Just register service worker
                 registerValidSW(swUrl, config);
             }
         });
-
-        askNotificationPerms();
     }
+}
+
+function enablePushNotifications(registration) {
+    registration.pushManager.getSubscription()
+    .then(function(subscription) {
+        const isSubscribed = !(subscription === null);
+
+        if (isSubscribed) {
+            console.log('User IS subscribed.');
+            console.log(JSON.stringify(subscription))
+        } else {
+            console.log('User is NOT subscribed.');
+            subscribeUserToPushNotifications(registration)
+        }
+    })
+}
+
+function updateSubscriptionOnServer(subscription) {
+    // TODO: Send subscription to application server
+    console.log(subscription)
+  }
+  
+
+function subscribeUserToPushNotifications(registration) {
+    const applicationServerKey = toUint8Array(applicationServerPublicKey);
+    registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: applicationServerKey
+    })
+    .then(function(subscription) {
+        console.log('User is subscribed.');
+
+        updateSubscriptionOnServer(subscription);
+    })
+    .catch(function(err) {
+        console.log('Failed to subscribe the user: ', err);
+    });
 }
 
 function registerValidSW(swUrl) {
     navigator.serviceWorker.register(swUrl)
+    .then((registration) => {
+        navigator.serviceWorker.ready.then(() => {
+            enablePushNotifications(registration)
+        });
+    })
     .catch((error) => {
         console.error('Error during service worker registration:', error);
     });
@@ -90,11 +124,5 @@ export function unregister() {
         .catch((error) => {
             console.error(error.message);
         });
-    }
-}
-
-export function askNotificationPerms() {
-    if ('PushManager' in window) {
-        console.log('Push notifications are supported');
     }
 }
