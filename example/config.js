@@ -1,0 +1,1 @@
+export const applicationServerPublicKey = "BKM5LMxCttEe9X5vqFQLPMusScznOjyN6ElWMV-GIH587Ruk4NhPlv7iiTmkWR0gxH7DaFDa81GoHBW2bmjNGqg"

@@ -1,6 +1,5 @@
 import toUint8Array from 'urlb64touint8array';
-
-const applicationServerPublicKey = "BKM5LMxCttEe9X5vqFQLPMusScznOjyN6ElWMV-GIH587Ruk4NhPlv7iiTmkWR0gxH7DaFDa81GoHBW2bmjNGqg"
+import { applicationServerPublicKey } from '../config';
 
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
@@ -29,15 +28,6 @@ export function register(config) {
             if (isLocalhost) {
                 // This is running on localhost. Let's check if a service worker still exists or not.
                 checkValidServiceWorker(swUrl, config);
-
-                // Add some additional logging to localhost, pointing developers to the
-                // service worker/PWA documentation.
-                navigator.serviceWorker.ready.then(() => {
-                    console.log(
-                        'This web app is being served cache-first by a service ' +
-                        'worker. To learn more, visit x'
-                    );
-                });
             } else {
                 // Is not localhost. Just register service worker
                 registerValidSW(swUrl, config);
@@ -86,7 +76,9 @@ function subscribeUserToPushNotifications(registration) {
 function registerValidSW(swUrl) {
     navigator.serviceWorker.register(swUrl)
     .then((registration) => {
-        enablePushNotifications(registration)
+        navigator.serviceWorker.ready.then(() => {
+            enablePushNotifications(registration)
+        });
     })
     .catch((error) => {
         console.error('Error during service worker registration:', error);
