@@ -1,3 +1,7 @@
+import toUint8Array from 'urlb64touint8array';
+
+const applicationServerPublicKey = "BKM5LMxCttEe9X5vqFQLPMusScznOjyN6ElWMV-GIH587Ruk4NhPlv7iiTmkWR0gxH7DaFDa81GoHBW2bmjNGqg"
+
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -39,13 +43,51 @@ export function register(config) {
                 registerValidSW(swUrl, config);
             }
         });
-
-        askNotificationPerms();
     }
+}
+
+function enablePushNotifications(registration) {
+    registration.pushManager.getSubscription()
+    .then(function(subscription) {
+        const isSubscribed = !(subscription === null);
+
+        if (isSubscribed) {
+            console.log('User IS subscribed.');
+            console.log(JSON.stringify(subscription))
+        } else {
+            console.log('User is NOT subscribed.');
+            subscribeUserToPushNotifications(registration)
+        }
+    })
+}
+
+function updateSubscriptionOnServer(subscription) {
+    // TODO: Send subscription to application server
+    console.log(subscription)
+  }
+  
+
+function subscribeUserToPushNotifications(registration) {
+    const applicationServerKey = toUint8Array(applicationServerPublicKey);
+    registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: applicationServerKey
+    })
+    .then(function(subscription) {
+        console.log('User is subscribed.');
+
+        updateSubscriptionOnServer(subscription);
+    })
+    .catch(function(err) {
+        console.log('Failed to subscribe the user: ', err);
+    });
 }
 
 function registerValidSW(swUrl) {
     navigator.serviceWorker.register(swUrl)
+    .then((registration) => {
+        enablePushNotifications(registration)
+    })
     .catch((error) => {
         console.error('Error during service worker registration:', error);
     });
@@ -90,11 +132,5 @@ export function unregister() {
         .catch((error) => {
             console.error(error.message);
         });
-    }
-}
-
-export function askNotificationPerms() {
-    if ('PushManager' in window) {
-        console.log('Push notifications are supported');
     }
 }
