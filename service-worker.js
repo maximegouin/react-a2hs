@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "undefined/sw.js",
+  "/sw.js",
   "/react-a2hs/precache-manifest.0b3a88710659001eba422f5672bbf23e.js"
 );
 
