@@ -36,7 +36,7 @@ module.exports = {
             },
           }
         ],
-        importScripts: ['/sw.js']
+        importScripts: [`${process.env.PUBLIC_URL}/sw.js`]
       })
     ]
 

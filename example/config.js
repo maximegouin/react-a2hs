@@ -1,1 +1,2 @@
-export const applicationServerPublicKey = "BKM5LMxCttEe9X5vqFQLPMusScznOjyN6ElWMV-GIH587Ruk4NhPlv7iiTmkWR0gxH7DaFDa81GoHBW2bmjNGqg"
+export const applicationServerPublicKey = "BLxd67GaFhVh55Ib11Jp105XJ1fKtqzDrlEPLfZYBv40gZ9McSuW9dsSxa1qlGdyio5o2m_BhqZsE5VrF6NKc5k"
+export const webPushServerUrl = "https://murmuring-fjord-98179.herokuapp.com/"

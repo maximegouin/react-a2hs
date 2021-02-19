@@ -1,5 +1,5 @@
 import toUint8Array from 'urlb64touint8array';
-import { applicationServerPublicKey } from '../config';
+import { applicationServerPublicKey, webPushServerUrl } from '../config';
 
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
@@ -41,11 +41,7 @@ function enablePushNotifications(registration) {
     .then(function(subscription) {
         const isSubscribed = !(subscription === null);
 
-        if (isSubscribed) {
-            console.log('User IS subscribed.');
-            console.log(JSON.stringify(subscription))
-        } else {
-            console.log('User is NOT subscribed.');
+        if (!isSubscribed) {
             subscribeUserToPushNotifications(registration)
         }
     })
@@ -53,7 +49,18 @@ function enablePushNotifications(registration) {
 
 function updateSubscriptionOnServer(subscription) {
     // TODO: Send subscription to application server
+    console.log('should send fetch body')
     console.log(subscription)
+    fetch(`${webPushServerUrl}/add-device`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(subscription)
+    })
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
   }
   
 
