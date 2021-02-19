@@ -36,7 +36,7 @@ module.exports = {
             },
           }
         ],
-        importScripts: [`${process.env.PUBLIC_URL}/sw.js`]
+        importScripts: [`/react-a2hs/sw.js`]
       })
     ]
 
